@@ -93,9 +93,9 @@ export async function recognize(
   args.push(options.output ?? "stdout");
 
   if (typeof options.lang === "string")
-    args.push(`-l="${options.lang.replaceAll('"', '\\"')}"`);
+    args.push(`-l "${options.lang.replaceAll('"', '\\"')}"`);
   if (typeof options.tessdata === "string")
-    args.push(`--tessdata-dir="${options.tessdata.replaceAll('"', '\\"')}"`);
+    args.push(`--tessdata-dir "${options.tessdata.replaceAll('"', '\\"')}"`);
   if (typeof options.psm === "number") {
     if (options.psm < 0 || options.psm > 13)
       throw new Error(`Invalid PSM: ${options.psm}. Must be between 0-13`);
@@ -108,9 +108,9 @@ export async function recognize(
   }
   if (typeof options.dpi === "number") args.push(`--dpi ${options.dpi}`);
   if (typeof options.words === "string")
-    args.push(`--user-words="${options.words.replaceAll('"', '\\"')}"`);
+    args.push(`--user-words "${options.words.replaceAll('"', '\\"')}"`);
   if (typeof options.patterns === "string")
-    args.push(`--user-patterns="${options.patterns.replaceAll('"', '\\"')}"`);
+    args.push(`--user-patterns "${options.patterns.replaceAll('"', '\\"')}"`);
 
   if (typeof options.flags === "object") {
     for (const [k, v] of Object.entries(options.flags)) {
